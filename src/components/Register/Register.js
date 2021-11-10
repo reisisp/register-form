@@ -66,7 +66,7 @@ export const Register = () => {
     }
     const telHandler = (e) => {
         setUser({ ...user, telephone: e.target.value })
-        const re = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7}$/;
+        const re = /^((8|\+7)[\- ]?)(\(?\d{3}\)?[\- ]?)[\d\- ]{7}$/;
         if (!re.test(String(e.target.value))) {
             setTelErr('Некорректный номер телефона')
         } else {
