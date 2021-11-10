@@ -1,0 +1,54 @@
+@import "../../styles/mixins";
+@import "../../styles/colors";
+
+.container {
+    min-width: 360px;
+    max-width: 460px;
+    @include background-el($background, $background-shadow);
+    @include border-radius(24px);
+}
+
+.wrapper {
+    padding: 40px 30px;
+}
+
+.reg {
+    &__header {
+        display: grid;
+        grid-row-gap: 8px;
+        margin-bottom: 58px;
+    }
+    &__heading {
+        @include text(34px, 700, 44px, $text);
+    }
+    &__redirect {
+        @include text(16px, 400, 22px, $text);
+        &_link {
+            color: $link;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    &__form {
+        display: grid;
+        grid-row-gap: 34px;
+    }
+    &__checkbox {
+        @include text(16px, 500, 21px, $label);
+        &_link {
+            color: $link;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    &__errbox {
+        position: relative;
+    }
+    &__err {
+        position: absolute;
+        margin-top: 8px;
+        @include text(14px, 400, 18px, $err);
+    }
+}

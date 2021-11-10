@@ -1,0 +1,88 @@
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+
+.selectbox {
+    display: grid;
+    grid-row-gap: 7px;
+}
+
+.select {
+    width: 100%;
+    position: relative;
+    &__heading {
+        @include text(16px, 400, 21px, $label);
+    }
+    &.isactive .select__body {
+        display: block;
+    }
+    &.isactive .select__header {
+        border: 2px solid $focus-border;
+    }
+    &.isactive .select__current {
+        @include text(16px, 400, 21px, $text);
+    }
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        box-sizing: border-box;
+        border: 1px solid $input-border;
+        @include background-el($background, $input-shadow);
+        @include border-radius(6px);
+        &:hover {
+            border: 2px solid $focus-border;
+        }
+    }
+    &__current {
+        padding: 15px 15px 14px 15px;
+        @include text(16px, 400, 21px, $placeholder);
+    }
+    &__selected {
+        padding: 15px 15px 14px 15px;
+        @include text(16px, 400, 21px, $text);
+    }
+    &__icon {
+        content: "";
+        position: absolute;
+        right: 18px;
+        top: 18px;
+        display: inline-block;
+        transform: rotate(45deg);
+        border-bottom: 2px solid $focus-border;
+        border-right: 2px solid $focus-border;
+        @include box(8px);
+    }
+    &.isactive .select__icon {
+        transform: rotate(225deg);
+        top: 20px;
+    }
+    &__body {
+        display: none;
+        z-index: 999;
+        overflow: auto;
+        height: 180px;
+        position: absolute;
+        margin-top: 4px;
+        left: 0;
+        right: 0;
+        top: 100%;
+        border: 1px solid $input-border;
+        @include background-el($background, $input-shadow);
+        @include border-radius(6px);
+    }
+    &__item {
+        cursor: pointer;
+        padding: 12px 12px 11px 15px;
+        @include text(16px, 400, 21px, $placeholder);
+        &:hover {
+            background-color: $select-hover;
+        }
+    }
+}
+
+.select__header:hover .select__current,
+.select__header:hover .select__selected,
+.select.isactive .select__header .select__current,
+.select.isactive .select__header .select__selected {
+    padding: 14px 14px 13px 14px;
+}

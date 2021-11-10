@@ -1,0 +1,49 @@
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+
+.elem {
+    position: relative;
+    &__label {
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(2, max-content);
+        grid-column-gap: 7px;
+    }
+    &__checkbox {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        & + .elem__label {
+            user-select: none;
+            &::before {
+                content: "";
+                display: inline-block;
+                border: 1px solid $input-border;
+                cursor: pointer;
+                @include background-el($background, $input-shadow);
+                @include box(27px);
+                @include border-radius(4px);
+            }
+            &:hover::before {
+                @include box(25px);
+                border: 2px solid $focus-border;
+            }
+        }
+        &:checked + .elem__label::before {
+            @include box(25px);
+            border: 2px solid $focus-border;
+        }
+        &:checked + .elem__label::after {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 11px;
+            display: inline-block;
+            transform: rotate(45deg);
+            height: 15px;
+            width: 6px;
+            border-bottom: 2px solid $focus-border;
+            border-right: 2px solid $focus-border;
+        }
+    }
+}
