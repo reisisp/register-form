@@ -4,6 +4,12 @@ import styles from './LangSelect.module.scss';
 
 
 export const LangSelect = (props) => {
+    const languages = [
+        { id: 1, name: 'Русский' },
+        { id: 2, name: 'Английский' },
+        { id: 3, name: 'Китайский' },
+        { id: 4, name: 'Испанский' },
+    ];
     const [visible, setVisible] = useState(false);
     const [lang, setLang] = useState('');
 
@@ -33,14 +39,9 @@ export const LangSelect = (props) => {
                     <div className={styles.select__icon}></div>
                 </div>
                 <div className={styles.select__body}>
-                    <div className={styles.select__item} onClick={selectLang}>Русский</div>
-                    <div className={styles.select__item} onClick={selectLang}>Английский</div>
-                    <div className={styles.select__item} onClick={selectLang}>Китайский</div>
-                    <div className={styles.select__item} onClick={selectLang}>Испанский</div>
-                    <div className={styles.select__item} onClick={selectLang}>Испанский</div>
-                    <div className={styles.select__item} onClick={selectLang}>Испанский</div>
-                    <div className={styles.select__item} onClick={selectLang}>Испанский</div>
-                    <div className={styles.select__item} onClick={selectLang}>Испанский</div>
+                    {languages.map((language, index) =>
+                        <div key={index} className={styles.select__item} onClick={selectLang}>{language.name}</div>
+                    )}
                 </div>
             </div>
         </div>
