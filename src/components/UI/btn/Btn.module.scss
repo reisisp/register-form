@@ -1,0 +1,33 @@
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+
+.btn {
+    width: 100%;
+    cursor: pointer;
+    padding: 16px 0 15px 0;
+    box-sizing: border-box;
+    border: 2px solid $reg-normal;
+    @include border-radius(6px);
+    @include background-el($reg-normal, $regShadow-normal);
+    &:hover {
+        @include background-el($reg-hover, $regShadow-hover);
+    }
+    &:active {
+        border: 2px solid $reg-border;
+        @include background-el($reg-active, $regShadow-active);
+    }
+    &:disabled,
+    &[disabled] {
+        cursor: auto;
+        border: 2px solid $reg-disabled;
+        @include background-el($reg-disabled, $regShadow-disabled);
+    }
+    &__text {
+        @include text(16px, 500, 21px, $btnText);
+    }
+}
+
+.btn:disabled,
+[disabled] .btn__text {
+    @include text(16px, 500, 20.8px, $btnText-disabled);
+}

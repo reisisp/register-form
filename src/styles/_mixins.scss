@@ -1,0 +1,55 @@
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+
+@mixin background-el($color, $shadow) {
+    background: $color;
+    box-shadow: $shadow;
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+@mixin addfont($family, $path, $weight) {
+    @font-face {
+        font-family: $family;
+        src: local($family), url("../assets/fonts/" + $path);
+        font-weight: $weight;
+    }
+}
+
+@mixin text($size, $weight, $height, $color) {
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $height;
+    color: $color;
+}
+
+@mixin box($width, $height: $width) {
+    height: $height;
+    width: $width;
+}
+
+// @mixin grid-row($rows, $gap, $content: max-content) {
+//     display: grid;
+//     align-content: center;
+//     align-items: center;
+//     grid-template-rows: repeat($rows, $content);
+//     grid-row-gap: $gap;
+// }

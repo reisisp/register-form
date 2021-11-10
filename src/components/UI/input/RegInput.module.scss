@@ -1,0 +1,26 @@
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+
+.elem {
+    display: grid;
+    grid-row-gap: 7px;
+    &__label {
+        @include text(16px, 400, 21px, $label);
+    }
+    &__input {
+        width: 100%;
+        padding: 15px 15px 14px 15px;
+        box-sizing: border-box;
+        border: 1px solid $input-border;
+        @include border-radius(6px);
+        @include background-el($background, $input-shadow);
+        @include text(16px, 400, 21px, $text);
+        @include placeholder {
+            @include text(16px, 400, 21px, $placeholder);
+        }
+        &:focus {
+            padding: 14px 14px 13px 14px;
+            border: 2px solid $focus-border;
+        }
+    }
+}
